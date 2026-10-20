@@ -1,0 +1,1 @@
+testdata/parse_error/input.tf:2:8: Invalid expression; Expected the start of an expression, but found an invalid expression token.

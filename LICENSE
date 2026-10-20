@@ -1,0 +1,40 @@
+The MIT License (MIT)
+
+Copyright (c) 2026 David Sherret
+Copyright (c) 2025 Jake Bailey (Wasm plugin interface, adapted from dprint-plugin-gofumpt)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Mozilla Public License 2.0 code
+
+The MIT License above doesn't cover the following, which are licensed under the
+Mozilla Public License, version 2.0 (https://mozilla.org/MPL/2.0/):
+
+- internal/tofufmt/fmt.go, which is ported from internal/command/fmt.go of
+  OpenTofu (https://github.com/opentofu/opentofu).
+  Copyright (c) The OpenTofu Authors. Copyright (c) 2023 HashiCorp, Inc.
+  See third_party/opentofu/LICENSE.
+- HCL (github.com/hashicorp/hcl/v2), which the compiled plugin includes.
+  Copyright IBM Corp. 2014, 2026. Its source code is available at
+  https://github.com/hashicorp/hcl. See third_party/hcl/LICENSE.
+
+The licenses of the other third-party code the compiled plugin includes are in
+the third_party directory.

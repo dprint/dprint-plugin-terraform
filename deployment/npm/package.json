@@ -1,0 +1,32 @@
+{
+  "name": "@dprint/terraform",
+  "version": "0.0.0",
+  "description": "Wasm buffer for dprint-plugin-terraform.",
+  "keywords": [
+    "terraform",
+    "opentofu",
+    "tofu",
+    "hcl",
+    "code",
+    "formatter",
+    "dprint"
+  ],
+  "homepage": "https://github.com/dprint/dprint-plugin-terraform#readme",
+  "bugs": {
+    "url": "https://github.com/dprint/dprint-plugin-terraform/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dprint/dprint-plugin-terraform.git"
+  },
+  "license": "MIT AND MPL-2.0",
+  "author": "David Sherret",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "devDependencies": {
+    "@dprint/formatter": "~0.4.0"
+  }
+}
