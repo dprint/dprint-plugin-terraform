@@ -31,7 +31,7 @@ func TestInfo(t *testing.T) {
 	if info.Name != "dprint-plugin-terraform" ||
 		info.Version != "1.2.3" ||
 		info.ConfigKey != "terraform" ||
-		info.HelpURL != "https://github.com/dprint/dprint-plugin-terraform" ||
+		info.HelpURL != "https://dprint.dev/plugins/terraform" ||
 		info.ConfigSchemaURL != "https://plugins.dprint.dev/dprint/dprint-plugin-terraform/1.2.3/schema.json" ||
 		info.UpdateURL != "https://plugins.dprint.dev/dprint/dprint-plugin-terraform/latest.json" {
 		t.Fatalf("unexpected plugin info: %#v", info)
