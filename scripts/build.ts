@@ -18,6 +18,12 @@ const tinygoArgs = [
   "-target=wasm-unknown",
   // the plugin is single threaded, so it doesn't need goroutines
   "-scheduler=none",
+  // the target's default GC never frees memory, so a plugin instance would
+  // run out of it after formatting a few hundred files
+  "-gc=precise",
+  // an 8 MiB stack instead of the linker's default of 64 KiB, since HCL parses
+  // and formats recursively and ten nested parentheses overflowed that
+  "-ldflags=-extldflags '-z stack-size=8388608'",
   "-no-debug",
   "-opt=2",
 ];
