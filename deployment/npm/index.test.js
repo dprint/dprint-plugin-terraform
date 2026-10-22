@@ -34,6 +34,13 @@ assert.strictEqual(
   "inputs = {\n  name = \"${local.name}\"\n}\n",
 );
 
+// deeply nested code doesn't overflow the stack
+const nested = `${"(".repeat(100)}1${")".repeat(100)}`;
+assert.strictEqual(
+  formatter.formatText({ filePath: "main.tf", fileText: `locals {\nx = ${nested}\n}\n` }),
+  `locals {\n  x = ${nested}\n}\n`,
+);
+
 // the plugin has no options
 formatter.setConfig({}, { indentWidth: 4 });
 assert.deepStrictEqual(formatter.getConfigDiagnostics(), [{
