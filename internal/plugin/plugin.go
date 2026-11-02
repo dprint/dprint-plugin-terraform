@@ -56,7 +56,7 @@ func (p *Plugin) Info(version string) uint32 {
 	data = appendJSONString(data, version)
 	data = append(data, `,"configKey":"terraform","helpUrl":"https://dprint.dev/plugins/terraform","configSchemaUrl":`...)
 	data = appendJSONString(data, "https://plugins.dprint.dev/dprint/dprint-plugin-terraform/"+version+"/schema.json")
-	data = append(data, `,"updateUrl":"https://plugins.dprint.dev/dprint/dprint-plugin-terraform/latest.json"}`...)
+	data = append(data, `,"updateUrl":"https://plugins.dprint.dev/dprint/dprint-plugin-terraform/latest.json","supportsRangeFormatting":false}`...)
 	return p.setSharedBytes(data)
 }
 
