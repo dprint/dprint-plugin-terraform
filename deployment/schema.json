@@ -3,5 +3,35 @@
   "$id": "https://plugins.dprint.dev/dprint/dprint-plugin-terraform/0.0.0/schema.json",
   "description": "dprint-plugin-terraform has no configuration options, since `tofu fmt` and `terraform fmt` have none.",
   "type": "object",
+  "x-playground": {
+    "input": [
+      "terraform {",
+      "  required_providers {",
+      "    aws = {",
+      "    source = \"hashicorp/aws\"",
+      "    version = \"~> 5.0\"",
+      "    }",
+      "  }",
+      "}",
+      "",
+      "variable \"environment\" {",
+      "  type = string",
+      "  default=\"staging\"",
+      "}",
+      "",
+      "resource \"aws_s3_bucket\" \"assets\" {",
+      "bucket = \"${var.environment}-assets\"",
+      "      force_destroy = var.environment != \"production\"",
+      "  tags = {",
+      "    Environment = var.environment",
+      "    Team=\"platform\"",
+      "  }",
+      "}",
+      "",
+      "output \"bucket_arn\" {",
+      "  value =   aws_s3_bucket.assets.arn",
+      "}"
+    ]
+  },
   "properties": {}
 }
