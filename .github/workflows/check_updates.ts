@@ -28,7 +28,7 @@ const buildJob = job("build", {
       name: "Run script",
       env: {
         OPENAI_API_KEY: "${{ secrets.OPENAI_API_KEY }}",
-        // for the GitHub API request of the latest OpenTofu release
+        // for the requests to GitHub about the latest OpenTofu release
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}",
         TOFU: "tofu",
         // The fixer and the reviewer use the default model of the Codex CLI.

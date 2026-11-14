@@ -80,9 +80,8 @@ async function getLatestOpenTofuVersion() {
  * looked at by hand.
  */
 async function getFormattingSource(version: string) {
-  const baseUrl = `https://raw.githubusercontent.com/opentofu/opentofu/v${version}`;
-  const fmtSource = await $.request(`${baseUrl}/internal/command/fmt.go`).text();
-  const goMod = await $.request(`${baseUrl}/go.mod`).text();
+  const fmtSource = await getOpenTofuFile("internal/command/fmt.go", version);
+  const goMod = await getOpenTofuFile("go.mod", version);
 
   const parts = [extractBlock(fmtSource, /^\tfmtSupportedExts = \[\]string\{$/m, "\t}", "fmtSupportedExts")];
   for (const name of portedFunctions) {
@@ -95,6 +94,13 @@ async function getFormattingSource(version: string) {
   }
   parts.push(hclLines.map((line) => line.trim()).join("\n"));
   return parts.join("\n\n") + "\n";
+}
+
+/** Gets the text of a file in OpenTofu's repo at the version. */
+function getOpenTofuFile(path: string, version: string) {
+  return $.request(`https://api.github.com/repos/opentofu/opentofu/contents/${path}?ref=v${version}`)
+    .header({ accept: "application/vnd.github.raw+json", ...getGitHubHeaders() })
+    .text();
 }
 
 /** Extracts the text from the line matching the pattern to the closing line. */
